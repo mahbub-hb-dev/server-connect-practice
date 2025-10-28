@@ -1,8 +1,9 @@
+import mongoose from "mongoose";
 import app from "./app.js";
-import client from "./config/mongodb.js";
 const port = 3000;
+const uri = "mongodb+srv://mahbub:mahbub@cluster0.bisro7z.mongodb.net/todo?appName=Cluster0";
 const bootstrap = async () => {
-    const connect = await client.connect();
+    await mongoose.connect(uri);
     console.log('MongoDB connected');
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`);
